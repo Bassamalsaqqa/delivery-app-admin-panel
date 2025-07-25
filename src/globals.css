@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  You can add global styles here. The body will adapt to RTL or LTR based on the `dir` attribute set on the html element.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen;
+}

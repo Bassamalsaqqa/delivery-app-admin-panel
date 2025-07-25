@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  admin-panel:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # Ensure this matches the backend service name and port
+      NEXT_PUBLIC_API_BASE_URL: http://backend:5000/api
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Define your backend service here. Adjust image/build context and ports according to your backend project.
+  backend:
+    # Build from the backend directory if available. You can replace this with an appropriate image.
+    build:
+      context: ../delivery-app-backend
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
